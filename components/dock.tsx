@@ -13,12 +13,15 @@ import {
 } from "react-icons/md";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { DockIcon } from "./dock-icon";
+import { useWindowStore } from "@/lib/stores/window-store";
+import { WindowType, WindowState } from "@/lib/types/window";
 
 interface DockItem {
   id: string;
   label: string;
   icon: IconType;
   href?: string;
+  windowType?: WindowType;
 }
 
 const localDockItems: DockItem[] = [
@@ -32,13 +35,13 @@ const localDockItems: DockItem[] = [
     id: "about",
     label: "About",
     icon: MdPerson,
-    href: "/about",
+    windowType: "about",
   },
   {
     id: "projects",
     label: "Projects",
     icon: MdWork,
-    href: "/projects",
+    windowType: "projects",
   },
 ];
 
@@ -70,13 +73,16 @@ export function Dock() {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { openWindow, windows } = useWindowStore();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   const handleLocalClick = (item: DockItem) => {
-    if (item.href) {
+    if (item.windowType) {
+      openWindow(item.windowType);
+    } else if (item.href) {
       router.push(item.href);
     }
   };
@@ -94,12 +100,17 @@ export function Dock() {
   };
 
   const isActive = (item: DockItem) => {
+    if (item.windowType) {
+      return windows.some(
+        (w: WindowState) => w.type === item.windowType && !w.isMinimized
+      );
+    }
     if (!item.href) return false;
     return pathname === item.href;
   };
 
   return (
-    <div className="fixed bottom-2 left-1/2 -translate-x-1/2 z-50">
+    <div className="fixed bottom-2 left-1/2 -translate-x-1/2 z-100">
       <div className="bg-black/10 dark:bg-white/10 backdrop-blur-md border border-gray-400 dark:border-gray-600 px-6 py-3 rounded-2xl flex space-x-4 items-end h-16">
         {/* Local navigation items */}
         {localDockItems.map((item) => (

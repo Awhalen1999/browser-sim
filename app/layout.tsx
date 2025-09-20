@@ -51,9 +51,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          {children}
-          <Dock />
+          <div className="h-screen overflow-hidden flex flex-col bg-(--background)">
+            <Header />
+            <main className="flex-1 relative overflow-hidden mt-12">
+              {children}
+            </main>
+            <Dock />
+          </div>
         </ThemeProvider>
       </body>
     </html>
