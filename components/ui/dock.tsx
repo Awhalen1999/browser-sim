@@ -37,8 +37,7 @@ export function Dock({ items, className }: DockProps) {
     <div
       className={cn(
         "fixed bottom-6 left-1/2 -translate-x-1/2 z-50",
-        "bg-white/10 backdrop-blur-md border border-white/20",
-        "rounded-2xl px-3 py-2 shadow-2xl",
+        "glass rounded-2xl px-3 py-2",
         className
       )}
     >
@@ -50,7 +49,7 @@ export function Dock({ items, className }: DockProps) {
             className={cn(
               "group relative flex h-16 w-16 items-center justify-center",
               "rounded-xl transition-all duration-150 ease-out",
-              "hover:-translate-y-1 hover:scale-120"
+              "hover:-translate-y-1 hover:scale-110"
             )}
             aria-label={item.label}
           >
@@ -59,13 +58,13 @@ export function Dock({ items, className }: DockProps) {
               alt={item.label}
               width={44}
               height={44}
-              className="object-contain transition-transform duration-150 group-hover:scale-120"
+              className="object-contain transition-transform duration-150 group-hover:scale-110"
             />
             <div
               className={cn(
-                "absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-white rounded-full",
+                "absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full",
                 "transition-all duration-300 ease-in-out",
-                item.isActive ? "opacity-100" : "opacity-0"
+                item.isActive ? "opacity-100 bg-accent" : "opacity-0"
               )}
             ></div>
 
@@ -73,13 +72,13 @@ export function Dock({ items, className }: DockProps) {
             <div
               className={cn(
                 "absolute bottom-full mb-3 left-1/2 -translate-x-1/2",
-                "bg-gray-900/90 text-white text-xs px-2 py-1 rounded-md",
+                "bg-surface text-text-primary text-xs px-2 py-1 rounded-md",
                 "opacity-0 group-hover:opacity-100",
                 "transition-all duration-200 ease-out",
                 "scale-95 group-hover:scale-100",
                 "pointer-events-none",
                 "whitespace-nowrap",
-                "border border-gray-500/50"
+                "border border-border shadow-md"
               )}
             >
               {item.label}
