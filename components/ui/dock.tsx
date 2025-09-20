@@ -65,7 +65,7 @@ export function Dock({ items, className }: DockProps) {
               className={cn(
                 "group relative flex h-16 w-16 items-center justify-center",
                 "rounded-xl transition-all duration-150 ease-out",
-                "hover:-translate-y-1 hover:scale-110"
+                "hover:-translate-y-1 hover:scale-110 cursor-pointer"
               )}
               aria-label={item.label}
             >
