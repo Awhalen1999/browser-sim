@@ -99,8 +99,8 @@ export function Dock() {
   };
 
   return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
-      <div className="bg-black/10 dark:bg-white/10 backdrop-blur-md border border-gray-400 dark:border-gray-600 px-6 py-3 rounded-2xl flex space-x-4 items-end h-20">
+    <div className="fixed bottom-2 left-1/2 -translate-x-1/2 z-50">
+      <div className="bg-black/10 dark:bg-white/10 backdrop-blur-md border border-gray-400 dark:border-gray-600 px-6 py-3 rounded-2xl flex space-x-4 items-end h-16">
         {/* Local navigation items */}
         {localDockItems.map((item) => (
           <DockIcon
@@ -113,7 +113,7 @@ export function Dock() {
         ))}
 
         {/* Separator */}
-        <div className="w-0.5 h-14 bg-gray-400 dark:bg-gray-600 opacity-60 self-center" />
+        <div className="w-0.5 h-10 bg-gray-400 dark:bg-gray-600 opacity-60 self-center" />
 
         {/* External social items */}
         {externalDockItems.map((item) => (
@@ -127,7 +127,7 @@ export function Dock() {
         ))}
 
         {/* Separator */}
-        <div className="w-0.5 h-14 bg-gray-400 dark:bg-gray-600 opacity-60 self-center" />
+        <div className="w-0.5 h-10 bg-gray-400 dark:bg-gray-600 opacity-60 self-center" />
 
         {/* Button items */}
         {buttonDockItems.map((item) => (

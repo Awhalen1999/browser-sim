@@ -21,13 +21,13 @@ export function DockIcon({
       onClick={onClick}
     >
       {/* Icon container */}
-      <div className="w-14 h-14 bg-gray-400 dark:bg-gray-600 rounded-xl flex items-center justify-center">
-        <Icon className="w-8 h-8 text-black dark:text-white" />
+      <div className="w-10  h-10 bg-gray-400 dark:bg-gray-600 rounded-xl flex items-center justify-center">
+        <Icon className="w-6 h-6 text-black dark:text-white" />
       </div>
 
       {/* Active indicator */}
       {isActive && (
-        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-gray-500 dark:bg-gray-100 rounded-full" />
+        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-gray-500 dark:bg-gray-100 rounded-full" />
       )}
 
       {/* Tooltip */}
