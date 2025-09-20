@@ -39,7 +39,7 @@ export function Dock({ items, className }: DockProps) {
     <div
       className={cn(
         "fixed bottom-4 left-1/2 -translate-x-1/2 z-50",
-        "glass rounded-2xl px-3 py-2",
+        "glass rounded-2xl px-4 py-3",
         className
       )}
     >
@@ -50,8 +50,7 @@ export function Dock({ items, className }: DockProps) {
             return (
               <div
                 key={item.id}
-                className="h-14 w-px mx-1"
-                style={{ backgroundColor: "var(--glass-border)" }}
+                className="h-14 w-px mx-1 bg-border"
                 aria-hidden="true"
               />
             );
@@ -65,7 +64,7 @@ export function Dock({ items, className }: DockProps) {
               className={cn(
                 "group relative flex h-16 w-16 items-center justify-center",
                 "rounded-xl transition-all duration-150 ease-out",
-                "hover:-translate-y-1 hover:scale-110 cursor-pointer"
+                "hover:-translate-y-1 hover:scale-110 cursor-pointer glass-hover"
               )}
               aria-label={item.label}
             >
@@ -83,7 +82,8 @@ export function Dock({ items, className }: DockProps) {
                 className={cn(
                   "absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full",
                   "transition-all duration-300 ease-in-out",
-                  item.isActive ? "opacity-100 bg-accent" : "opacity-0"
+                  item.isActive ? "opacity-100" : "opacity-0",
+                  "bg-accent"
                 )}
               ></div>
 
@@ -91,7 +91,7 @@ export function Dock({ items, className }: DockProps) {
               <div
                 className={cn(
                   "absolute bottom-full mb-3 left-1/2 -translate-x-1/2",
-                  "bg-surface text-text-primary text-xs px-2 py-1 rounded-md",
+                  "bg-surface text-foreground text-xs px-2 py-1 rounded-md",
                   "opacity-0 group-hover:opacity-100",
                   "transition-all duration-200 ease-out",
                   "scale-95 group-hover:scale-100",

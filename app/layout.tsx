@@ -1,9 +1,10 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 
+// components
 import { Navigation } from "@/components/navigation";
-
-import "./globals.css";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -26,10 +27,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.variable} antialiased`}>
-        <main>{children}</main>
-        <Navigation />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+          <Navigation />
+        </ThemeProvider>
       </body>
     </html>
   );
