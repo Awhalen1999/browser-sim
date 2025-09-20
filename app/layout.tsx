@@ -14,12 +14,27 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  // todo: add title, description, keywords
-  title: "A.DEV",
-  description: "A.DEV Portfolio",
-  keywords: ["portfolio"],
+  title: "Alex Whalen",
+  description:
+    "Full-stack software developer specializing in mobile and web applications. Portfolio showcasing modern React, Next.js, and cross-platform development.",
+  keywords: [
+    "portfolio",
+    "software developer",
+    "full stack",
+    "mobile development",
+    "web development",
+    "react",
+    "nextjs",
+    "typescript",
+  ],
   authors: [{ name: "Alex Whalen" }],
   creator: "Alex Whalen",
+  openGraph: {
+    title: "Alex Whalen - Software Developer",
+    description:
+      "Full-stack mobile and web developer. Explore my projects and development journey.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
