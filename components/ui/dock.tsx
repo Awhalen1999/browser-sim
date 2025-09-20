@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 interface DockItem {
   id: string;
@@ -46,9 +49,23 @@ const externalDockItems: DockItem[] = [
   },
 ];
 
+const buttonDockItems: DockItem[] = [
+  {
+    id: "theme",
+    label: "Theme",
+    icon: "",
+  },
+];
+
 export function Dock() {
   const router = useRouter();
   const pathname = usePathname();
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleLocalClick = (item: DockItem) => {
     if (item.href) {
@@ -59,6 +76,12 @@ export function Dock() {
   const handleExternalClick = (item: DockItem) => {
     if (item.href) {
       window.open(item.href, "_blank", "noopener,noreferrer");
+    }
+  };
+
+  const handleButtonClick = (item: DockItem) => {
+    if (item.id === "theme") {
+      setTheme(theme === "dark" ? "light" : "dark");
     }
   };
 
@@ -119,6 +142,33 @@ export function Dock() {
             {isActive(item) && (
               <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-gray-500 dark:bg-gray-100 rounded-full" />
             )}
+
+            {/* Tooltip */}
+            <div className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200">
+              {item.label}
+            </div>
+          </div>
+        ))}
+
+        {/* Separator */}
+        <div className="w-0.5 h-14 bg-gray-300 dark:bg-gray-600 opacity-60 self-center" />
+
+        {/* Button items */}
+        {buttonDockItems.map((item) => (
+          <div
+            key={item.id}
+            className="relative cursor-pointer flex items-center justify-center transition-all duration-200 ease-out transform hover:-translate-y-3 hover:scale-125 group"
+            onClick={() => handleButtonClick(item)}
+          >
+            {/* Custom button styling to match dock apps */}
+            <div className="w-14 h-14 bg-gray-400 rounded-xl flex items-center justify-center">
+              {mounted &&
+                (theme === "dark" ? (
+                  <MdLightMode className="w-8 h-8 text-yellow-500" />
+                ) : (
+                  <MdDarkMode className="w-8 h-8 text-gray-600" />
+                ))}
+            </div>
 
             {/* Tooltip */}
             <div className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200">
