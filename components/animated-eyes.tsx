@@ -44,7 +44,7 @@ export default function AnimatedEyes() {
 
       // Random blink every 4-8 seconds
       const scheduleNextBlink = () => {
-        const delay = Math.random() * 5000 + 5000; // 5-10 seconds
+        const delay = Math.random() * 4000 + 4000; // 5-10 seconds
         setTimeout(() => {
           blink();
           scheduleNextBlink();

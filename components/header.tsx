@@ -29,14 +29,14 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 px-6 py-4 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-40 px-6 py-2 flex items-center justify-between">
       {/* Left side - Name */}
-      <div className="text-sm font-medium text-gray-900 dark:text-gray-100 tracking-extra-wide">
+      <div className="text-sm font-mono text-gray-900 dark:text-gray-100 tracking-extra-wide">
         A.DEV
       </div>
 
       {/* Right side - Time */}
-      <div className="text-sm font-mono text-gray-600 dark:text-gray-400 tabular-nums">
+      <div className="text-sm font-mono text-gray-600 dark:text-gray-400 tabular-nums ">
         {time}
       </div>
     </header>
