@@ -4,7 +4,8 @@ import { Poppins } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 
 // components
-import { Dock } from "@/components/ui/dock";
+import { Dock } from "@/components/dock";
+import Header from "@/components/header";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -35,6 +36,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Header />
           {children}
           <Dock />
         </ThemeProvider>
