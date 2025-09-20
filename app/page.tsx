@@ -5,7 +5,7 @@ import AnimatedEyes from "@/components/animated-eyes";
 
 const page = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-(--background)">
       <AnimatedEyes />
     </div>
   );

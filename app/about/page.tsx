@@ -2,61 +2,69 @@ import React from "react";
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="max-w-3xl mx-auto px-6 py-16">
+    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+      <div className="max-w-4xl mx-auto px-6 pt-20 pb-24">
         {/* Header */}
-        <div className="mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-text-primary mb-8">
+        <div className="mb-12">
+          <h1 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-4">
             Alex Whalen
           </h1>
-          <p className="text-lg text-text-secondary leading-relaxed">
-            Hey! I'm Alex Whalen, a passionate full-stack developer and creative
+          <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+            Hey! I&apos;m Alex Whalen, a passionate full-stack developer and creative
             problem solver.
           </p>
         </div>
 
         {/* Work Section */}
-        <div className="mb-12">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-text-secondary">Working at</span>
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="text-xs text-[var(--text-secondary)]">
+              Working at
+            </span>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-              <span className="text-text-primary font-medium">TechCorp</span>
+              <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
+              <span className="text-sm text-[var(--text-primary)] font-medium">
+                TechCorp
+              </span>
             </div>
-            <span className="text-text-muted">/</span>
+            <span className="text-xs text-[var(--text-muted)]">/</span>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-              <span className="text-text-primary font-medium">Freelance</span>
+              <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+              <span className="text-sm text-[var(--text-primary)] font-medium">
+                Freelance
+              </span>
             </div>
           </div>
         </div>
 
         {/* Creator Section */}
-        <div className="mb-12">
-          <div className="flex items-start gap-3 mb-4">
-            <span className="text-text-secondary">Creator of</span>
+        <div className="mb-8">
+          <div className="flex items-start gap-3 mb-3">
+            <span className="text-xs text-[var(--text-secondary)]">
+              Creator of
+            </span>
             <div className="flex flex-wrap gap-3">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-yellow-500 rounded-full"></span>
-                <span className="text-text-primary font-medium">
+                <span className="w-1.5 h-1.5 bg-yellow-500 rounded-full"></span>
+                <span className="text-sm text-[var(--text-primary)] font-medium">
                   DevTools Pro
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                <span className="text-text-primary font-medium">
+                <span className="w-1.5 h-1.5 bg-purple-500 rounded-full"></span>
+                <span className="text-sm text-[var(--text-primary)] font-medium">
                   React Starter
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-                <span className="text-text-primary font-medium">
+                <span className="w-1.5 h-1.5 bg-red-500 rounded-full"></span>
+                <span className="text-sm text-[var(--text-primary)] font-medium">
                   Code Snippets
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-cyan-500 rounded-full"></span>
-                <span className="text-text-primary font-medium">
+                <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></span>
+                <span className="text-sm text-[var(--text-primary)] font-medium">
                   Design System
                 </span>
               </div>
@@ -65,21 +73,27 @@ const AboutPage = () => {
         </div>
 
         {/* Core Team Section */}
-        <div className="mb-12">
-          <div className="flex items-start gap-3 mb-4">
-            <span className="text-text-secondary">Core team of</span>
+        <div className="mb-8">
+          <div className="flex items-start gap-3 mb-3">
+            <span className="text-xs text-[var(--text-secondary)]">
+              Core team of
+            </span>
             <div className="flex flex-wrap gap-3">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-green-600 rounded-full"></span>
-                <span className="text-text-primary font-medium">React</span>
+                <span className="w-1.5 h-1.5 bg-green-600 rounded-full"></span>
+                <span className="text-sm text-[var(--text-primary)] font-medium">
+                  React
+                </span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-black rounded-full"></span>
-                <span className="text-text-primary font-medium">Next.js</span>
+                <span className="w-1.5 h-1.5 bg-black rounded-full"></span>
+                <span className="text-sm text-[var(--text-primary)] font-medium">
+                  Next.js
+                </span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                <span className="text-text-primary font-medium">
+                <span className="w-1.5 h-1.5 bg-blue-600 rounded-full"></span>
+                <span className="text-sm text-[var(--text-primary)] font-medium">
                   TypeScript
                 </span>
               </div>
@@ -88,32 +102,36 @@ const AboutPage = () => {
         </div>
 
         {/* Maintaining Section */}
-        <div className="mb-16">
-          <div className="flex items-start gap-3 mb-4">
-            <span className="text-text-secondary">Maintaining</span>
+        <div className="mb-12">
+          <div className="flex items-start gap-3 mb-3">
+            <span className="text-xs text-[var(--text-secondary)]">
+              Maintaining
+            </span>
             <div className="flex flex-wrap gap-3">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
-                <span className="text-text-primary font-medium">
+                <span className="w-1.5 h-1.5 bg-orange-500 rounded-full"></span>
+                <span className="text-sm text-[var(--text-primary)] font-medium">
                   Portfolio Kit
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-pink-500 rounded-full"></span>
-                <span className="text-text-primary font-medium">
+                <span className="w-1.5 h-1.5 bg-pink-500 rounded-full"></span>
+                <span className="text-sm text-[var(--text-primary)] font-medium">
                   UI Components
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                <span className="text-text-primary font-medium">Dev Utils</span>
+                <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
+                <span className="text-sm text-[var(--text-primary)] font-medium">
+                  Dev Utils
+                </span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Description Paragraphs */}
-        <div className="space-y-6 mb-16 text-text-secondary leading-relaxed">
+        <div className="space-y-4 mb-12 text-sm text-[var(--text-secondary)] leading-relaxed">
           <p>
             Dreaming up innovative solutions and bringing them to life is where
             my passion lies. I am enthusiastic about building tools and
@@ -205,7 +223,7 @@ const AboutPage = () => {
                 SF
               </span>
             </span>
-            , if you are around, please reach out and let's have some coffee or{" "}
+            , if you are around, please reach out and let&apos;s have some coffee or{" "}
             <a
               href="#"
               className="text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors underline"
@@ -217,52 +235,52 @@ const AboutPage = () => {
         </div>
 
         {/* Social Links */}
-        <div className="border-t border-border pt-12">
-          <h2 className="text-xl font-semibold text-text-primary mb-8">
+        <div className="border-t border-[var(--border)] pt-8">
+          <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-6">
             Find me on
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             <a
               href="#"
-              className="flex items-center gap-3 text-text-secondary hover:text-[var(--accent)] transition-colors"
+              className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
             >
-              <span className="text-lg">🐙</span>
+              <span className="text-base">🐙</span>
               <span>GitHub</span>
             </a>
             <a
               href="#"
-              className="flex items-center gap-3 text-text-secondary hover:text-[var(--accent)] transition-colors"
+              className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
             >
-              <span className="text-lg">🐦</span>
+              <span className="text-base">🐦</span>
               <span>Twitter</span>
             </a>
             <a
               href="#"
-              className="flex items-center gap-3 text-text-secondary hover:text-[var(--accent)] transition-colors"
+              className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
             >
-              <span className="text-lg">💼</span>
+              <span className="text-base">💼</span>
               <span>LinkedIn</span>
             </a>
             <a
               href="#"
-              className="flex items-center gap-3 text-text-secondary hover:text-[var(--accent)] transition-colors"
+              className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
             >
-              <span className="text-lg">📺</span>
+              <span className="text-base">📺</span>
               <span>YouTube</span>
             </a>
             <a
               href="#"
-              className="flex items-center gap-3 text-text-secondary hover:text-[var(--accent)] transition-colors"
+              className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
             >
-              <span className="text-lg">📷</span>
+              <span className="text-base">📷</span>
               <span>Instagram</span>
             </a>
             <a
               href="#"
-              className="flex items-center gap-3 text-text-secondary hover:text-[var(--accent)] transition-colors"
+              className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
             >
-              <span className="text-lg">💬</span>
+              <span className="text-base">💬</span>
               <span>Discord</span>
             </a>
           </div>
