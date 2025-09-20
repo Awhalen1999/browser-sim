@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import { Poppins } from "next/font/google";
+
 import { Navigation } from "@/components/navigation";
+
+import "./globals.css";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -9,10 +11,13 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-// todo: add title and description
 export const metadata: Metadata = {
-  title: "A.dev",
-  description: "A.dev Portfolio",
+  // todo: add title, description, keywords
+  title: "A.DEV",
+  description: "A.DEV Portfolio",
+  keywords: ["portfolio"],
+  authors: [{ name: "Alex Whalen" }],
+  creator: "Alex Whalen",
 };
 
 export default function RootLayout({
