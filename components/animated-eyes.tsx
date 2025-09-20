@@ -40,9 +40,9 @@ export default function AnimatedEyes() {
         setTimeout(() => setIsBlinking(false), 150);
       };
 
-      // Random blink every 2-5 seconds
+      // Random blink every 4-8 seconds
       const scheduleNextBlink = () => {
-        const delay = Math.random() * 3000 + 2000; // 2-5 seconds
+        const delay = Math.random() * 5000 + 5000; // 5-10 seconds
         setTimeout(() => {
           blink();
           scheduleNextBlink();
@@ -63,7 +63,7 @@ export default function AnimatedEyes() {
       <div className="flex gap-20">
         {/* Left Eye */}
         <div
-          className={`relative w-60 bg-white rounded-full overflow-hidden transition-all duration-300 ease-out ${
+          className={`relative w-60 bg-gray-200 dark:bg-white rounded-full overflow-hidden transition-all duration-300 ease-out ${
             !isOpen || isBlinking ? "h-1" : "h-32"
           }`}
         >
@@ -78,7 +78,7 @@ export default function AnimatedEyes() {
 
         {/* Right Eye */}
         <div
-          className={`relative w-60 bg-white rounded-full overflow-hidden transition-all duration-300 ease-out ${
+          className={`relative w-60 bg-gray-200 dark:bg-white rounded-full overflow-hidden transition-all duration-300 ease-out ${
             !isOpen || isBlinking ? "h-1" : "h-32"
           }`}
         >
