@@ -31,7 +31,9 @@ export default function AnimatedEyes() {
         {/* Left Eye */}
         <div className="relative w-60 h-32 bg-white rounded-full overflow-hidden">
           <div
-            ref={(el) => (ballRefs.current[0] = el)}
+            ref={(el) => {
+              ballRefs.current[0] = el;
+            }}
             className="pupil absolute w-20 h-20 bg-black rounded-full transition-all duration-100 ease-out"
             style={{ transform: "translate(50%, 50%)" }}
           />
@@ -40,7 +42,9 @@ export default function AnimatedEyes() {
         {/* Right Eye */}
         <div className="relative w-60 h-32 bg-white rounded-full overflow-hidden">
           <div
-            ref={(el) => (ballRefs.current[1] = el)}
+            ref={(el) => {
+              ballRefs.current[1] = el;
+            }}
             className="pupil absolute w-20 h-20 bg-black rounded-full transition-all duration-100 ease-out"
             style={{ transform: "translate(50%, 50%)" }}
           />
