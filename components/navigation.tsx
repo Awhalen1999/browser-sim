@@ -11,10 +11,16 @@ const NAVIGATION_ITEMS: DockItem[] = [
     href: "/",
   },
   {
-    id: "profile",
+    id: "separator",
+    label: "Separator",
+    icon: "",
+    isSeparator: true,
+  },
+  {
+    id: "about",
     label: "About",
     icon: "/profile.png",
-    href: "/me",
+    href: "/about",
   },
   {
     id: "projects",
@@ -50,7 +56,7 @@ export function Navigation() {
     ...item,
     isActive:
       (item.id === "home" && pathname === "/") ||
-      (item.id === "profile" && pathname === "/me") ||
+      (item.id === "about" && pathname === "/about") ||
       (item.id === "projects" && pathname === "/projects"),
   }));
 

@@ -35,13 +35,15 @@ export function Dock({ items, className }: DockProps) {
   };
 
   return (
+    // ===== DOCK CONTAINER =====
     <div
       className={cn(
-        "fixed bottom-6 left-1/2 -translate-x-1/2 z-50",
+        "fixed bottom-4 left-1/2 -translate-x-1/2 z-50",
         "glass rounded-2xl px-3 py-2",
         className
       )}
     >
+      {/* Dock Items Mapper */}
       <div className="flex items-center gap-2">
         {items.map((item) => {
           if (item.isSeparator) {
@@ -56,6 +58,7 @@ export function Dock({ items, className }: DockProps) {
           }
 
           return (
+            // ===== DOCK ITEM =====
             <button
               key={item.id}
               onClick={() => handleItemClick(item)}
@@ -66,6 +69,7 @@ export function Dock({ items, className }: DockProps) {
               )}
               aria-label={item.label}
             >
+              {/* Icon */}
               <Image
                 src={item.icon}
                 alt={item.label}
@@ -73,6 +77,8 @@ export function Dock({ items, className }: DockProps) {
                 height={44}
                 className="object-contain transition-transform duration-150 group-hover:scale-110"
               />
+
+              {/* Active Indicator */}
               <div
                 className={cn(
                   "absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full",
@@ -81,7 +87,7 @@ export function Dock({ items, className }: DockProps) {
                 )}
               ></div>
 
-              {/* macOS-style tooltip */}
+              {/* Tooltip */}
               <div
                 className={cn(
                   "absolute bottom-full mb-3 left-1/2 -translate-x-1/2",
