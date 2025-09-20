@@ -1,14 +1,12 @@
 "use client";
 
 import React from "react";
+import AnimatedEyes from "@/components/animated-eyes";
 
 const page = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-text-primary mb-4">Welcome</h1>
-        <p className="text-text-secondary">This is the home page</p>
-      </div>
+    <div className="min-h-screen bg-background relative">
+      <AnimatedEyes />
     </div>
   );
 };
