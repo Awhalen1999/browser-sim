@@ -4,7 +4,7 @@ import { Poppins } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 
 // components
-import { Navigation } from "@/components/navigation";
+import { Dock } from "@/components/ui/dock";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -31,7 +31,7 @@ export default function RootLayout({
       <body className={`${poppins.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
-          <Navigation />
+          <Dock />
         </ThemeProvider>
       </body>
     </html>
