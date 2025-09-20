@@ -1,70 +1,100 @@
 @import "tailwindcss";
 
-/* Enable dark mode with data-theme attribute */
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-surface: var(--surface);
-  --color-border: var(--border);
-  --color-accent: var(--accent);
-  --color-glass-bg: var(--glass-bg);
-  --color-glass-border: var(--glass-border);
+::selection {
+  background-color: #ff7bb6;
+  color: #fefefe;
 }
 
-/* Default theme variables */
-@theme {
-  --color-background-light: hsl(0 0% 100%);
-  --color-background-dark: hsl(222 84% 5%);
-  --color-foreground-light: hsl(222 84% 5%);
-  --color-foreground-dark: hsl(210 40% 98%);
-  --color-surface-light: hsl(210 40% 96%);
-  --color-surface-dark: hsl(217 33% 17%);
-  --color-border-light: hsl(214 32% 91%);
-  --color-border-dark: hsl(215 25% 27%);
-  --color-accent: hsl(221 83% 53%);
-  --color-glass-bg-light: rgba(100, 100, 100, 0.25);
-  --color-glass-bg-dark: rgba(0, 0, 0, 0.25);
-  --color-glass-border-light: rgba(255, 255, 255, 0.18);
-  --color-glass-border-dark: rgba(255, 255, 255, 0.18);
-  --color-glass-shadow-light: rgba(0, 0, 0, 0.1);
-  --color-glass-shadow-dark: rgba(0, 0, 0, 0.3);
-}
-
-/* Theme-specific variable assignments */
-@layer base {
-  :root {
-    --background: var(--color-background-light);
-    --foreground: var(--color-foreground-light);
-    --surface: var(--color-surface-light);
-    --border: var(--color-border-light);
-    --accent: var(--color-accent);
-    --glass-bg: var(--color-glass-bg-light);
-    --glass-border: var(--color-glass-border-light);
-    --glass-shadow: var(--color-glass-shadow-light);
-  }
-
-  .dark {
-    --background: var(--color-background-dark);
-    --foreground: var(--color-foreground-dark);
-    --surface: var(--color-surface-dark);
-    --border: var(--color-border-dark);
-    --accent: var(--color-accent);
-    --glass-bg: var(--color-glass-bg-dark);
-    --glass-border: var(--color-glass-border-dark);
-    --glass-shadow: var(--color-glass-shadow-dark);
-  }
-}
-
-/* Apply background to root */
+/* Light theme colors */
 :root {
-  background-color: var(--background);
-  color: var(--foreground);
+  /* Base Colors */
+
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Surface Colors */
+
+  --surface: #f8f9fa;
+  --surface-hover: #e9ecef;
+  --surface-active: #dee2e6;
+
+  /* Border & Divider */
+
+  --border: #e5e7eb;
+  --border-hover: #d1d5db;
+
+  /* Text Colors */
+
+  --text-primary: #171717;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+
+  /* Accent Colors */
+
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-foreground: #ffffff;
+
+  /* Status Colors */
+
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+
+  /* Glass Effect */
+
+  --glass-bg: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.25);
+  --glass-backdrop: blur(10px);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
-/* Base Styles */
-body {
-  font-family: var(--font-poppins), system-ui, sans-serif;
-  transition: background-color 200ms ease-out, color 200ms ease-out;
+/* Dark theme colors */
+.dark {
+  /* Base Colors */
+
+  --background: #111010;
+  --foreground: #ffffff;
+
+  /* Surface Colors */
+
+  --surface: #1a1a1a;
+  --surface-hover: #2a2a2a;
+  --surface-active: #3a3a3a;
+
+  /* Border & Divider */
+
+  --border: #2a2a2a;
+  --border-hover: #3a3a3a;
+
+  /* Text Colors */
+
+  --text-primary: #ffffff;
+  --text-secondary: #999999;
+  --text-muted: #666666;
+
+  /* Accent Colors */
+
+  --accent: #4c97f8;
+  --accent-hover: #3578d8;
+  --accent-foreground: #ffffff;
+
+  /* Status Colors */
+
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+
+  /* Glass Effect */
+
+  --glass-bg: rgba(0, 0, 0, 0.15);
+  --glass-border: rgba(0, 0, 0, 0.25);
+  --glass-backdrop: blur(10px);
+  --glass-shadow: 0 8px 32px rgba(255, 255, 255, 0.12);
+}
+
+html {
+  min-width: 360px;
 }

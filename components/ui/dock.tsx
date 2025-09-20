@@ -82,7 +82,7 @@ export function Dock() {
 
             {/* Active indicator */}
             {isActive(item) && (
-              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-white rounded-full" />
+              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-gray-500 dark:bg-gray-100 rounded-full" />
             )}
 
             {/* Tooltip */}

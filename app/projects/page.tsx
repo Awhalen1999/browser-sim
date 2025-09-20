@@ -1,14 +1,15 @@
-import React from "react";
+import type { Metadata } from "next";
 
-const page = () => {
-  return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-text-primary mb-4">Projects</h1>
-        <p className="text-text-secondary">This is the projects page</p>
-      </div>
-    </div>
-  );
+export const metadata: Metadata = {
+  title: "A.DEV | Projects",
+  description: "Projects",
 };
 
-export default page;
+export default function Projects() {
+  return (
+    <section>
+      <h1 className="font-medium text-2xl mb-8 bg-background">Projects</h1>
+      <p className="mb-4">This is the projects page.</p>
+    </section>
+  );
+}
