@@ -9,6 +9,7 @@ export interface DockItem {
   href?: string;
   onClick?: () => void;
   isActive?: boolean;
+  isSeparator?: boolean;
 }
 
 interface DockProps {
@@ -42,49 +43,62 @@ export function Dock({ items, className }: DockProps) {
       )}
     >
       <div className="flex items-center gap-2">
-        {items.map((item) => (
-          <button
-            key={item.id}
-            onClick={() => handleItemClick(item)}
-            className={cn(
-              "group relative flex h-16 w-16 items-center justify-center",
-              "rounded-xl transition-all duration-150 ease-out",
-              "hover:-translate-y-1 hover:scale-110"
-            )}
-            aria-label={item.label}
-          >
-            <Image
-              src={item.icon}
-              alt={item.label}
-              width={44}
-              height={44}
-              className="object-contain transition-transform duration-150 group-hover:scale-110"
-            />
-            <div
-              className={cn(
-                "absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full",
-                "transition-all duration-300 ease-in-out",
-                item.isActive ? "opacity-100 bg-accent" : "opacity-0"
-              )}
-            ></div>
+        {items.map((item) => {
+          if (item.isSeparator) {
+            return (
+              <div
+                key={item.id}
+                className="h-14 w-px mx-1"
+                style={{ backgroundColor: "var(--glass-border)" }}
+                aria-hidden="true"
+              />
+            );
+          }
 
-            {/* macOS-style tooltip */}
-            <div
+          return (
+            <button
+              key={item.id}
+              onClick={() => handleItemClick(item)}
               className={cn(
-                "absolute bottom-full mb-3 left-1/2 -translate-x-1/2",
-                "bg-surface text-text-primary text-xs px-2 py-1 rounded-md",
-                "opacity-0 group-hover:opacity-100",
-                "transition-all duration-200 ease-out",
-                "scale-95 group-hover:scale-100",
-                "pointer-events-none",
-                "whitespace-nowrap",
-                "border border-border shadow-md"
+                "group relative flex h-16 w-16 items-center justify-center",
+                "rounded-xl transition-all duration-150 ease-out",
+                "hover:-translate-y-1 hover:scale-110"
               )}
+              aria-label={item.label}
             >
-              {item.label}
-            </div>
-          </button>
-        ))}
+              <Image
+                src={item.icon}
+                alt={item.label}
+                width={44}
+                height={44}
+                className="object-contain transition-transform duration-150 group-hover:scale-110"
+              />
+              <div
+                className={cn(
+                  "absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full",
+                  "transition-all duration-300 ease-in-out",
+                  item.isActive ? "opacity-100 bg-accent" : "opacity-0"
+                )}
+              ></div>
+
+              {/* macOS-style tooltip */}
+              <div
+                className={cn(
+                  "absolute bottom-full mb-3 left-1/2 -translate-x-1/2",
+                  "bg-surface text-text-primary text-xs px-2 py-1 rounded-md",
+                  "opacity-0 group-hover:opacity-100",
+                  "transition-all duration-200 ease-out",
+                  "scale-95 group-hover:scale-100",
+                  "pointer-events-none",
+                  "whitespace-nowrap",
+                  "border border-border shadow-md"
+                )}
+              >
+                {item.label}
+              </div>
+            </button>
+          );
+        })}
       </div>
     </div>
   );

@@ -23,6 +23,12 @@ const NAVIGATION_ITEMS: DockItem[] = [
     href: "/projects",
   },
   {
+    id: "separator",
+    label: "Separator",
+    icon: "",
+    isSeparator: true,
+  },
+  {
     id: "github",
     label: "GitHub",
     icon: "/github.png",
