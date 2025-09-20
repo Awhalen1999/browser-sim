@@ -9,7 +9,9 @@ export default function AnimatedEyes() {
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
-      const x = (event.clientX * 100) / window.innerWidth - 50;
+      // Account for the gap between eyes - shift the center point
+      const centerOffset = 15; // Adjust this value to center properly
+      const x = (event.clientX * 100) / window.innerWidth - 50 + centerOffset;
       const y = (event.clientY * 100) / window.innerHeight - 50;
 
       ballRefs.current.forEach((ball) => {
