@@ -68,6 +68,22 @@ export function Dock({ items, className }: DockProps) {
                 item.isActive ? "opacity-100" : "opacity-0"
               )}
             ></div>
+
+            {/* macOS-style tooltip */}
+            <div
+              className={cn(
+                "absolute bottom-full mb-3 left-1/2 -translate-x-1/2",
+                "bg-gray-900/90 text-white text-xs px-2 py-1 rounded-md",
+                "opacity-0 group-hover:opacity-100",
+                "transition-all duration-200 ease-out",
+                "scale-95 group-hover:scale-100",
+                "pointer-events-none",
+                "whitespace-nowrap",
+                "border border-gray-500/50"
+              )}
+            >
+              {item.label}
+            </div>
           </button>
         ))}
       </div>
