@@ -6,6 +6,21 @@ import { useWindowStore } from "@/lib/stores/window-store";
 import { AboutWindow } from "./windows/about-window";
 import { ProjectsWindow } from "./windows/projects-window";
 
+// Type safety utilities
+const isValidNumber = (value: unknown): value is number => {
+  return typeof value === "number" && !isNaN(value) && isFinite(value);
+};
+
+const isValidCoordinate = (x: unknown, y: unknown): boolean => {
+  return isValidNumber(x) && isValidNumber(y);
+};
+
+const isValidDimension = (width: unknown, height: unknown): boolean => {
+  return (
+    isValidNumber(width) && isValidNumber(height) && width > 0 && height > 0
+  );
+};
+
 interface WindowProps {
   window: WindowState;
 }
@@ -26,6 +41,21 @@ export function Window({ window }: WindowProps) {
     updateWindowSize,
   } = useWindowStore();
 
+  // Shared event handler setup
+  const setupMouseHandlers = (
+    onMouseMove: (e: MouseEvent) => void,
+    onMouseUp: () => void
+  ) => {
+    const handleMouseUp = () => {
+      onMouseUp();
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+  };
+
   const startDrag = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -36,6 +66,23 @@ export function Window({ window }: WindowProps) {
       x: e.clientX - window.position.x,
       y: e.clientY - window.position.y,
     };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (isDragging.current) {
+        const newX = e.clientX - dragOffset.current.x;
+        const newY = Math.max(0, e.clientY - dragOffset.current.y);
+
+        if (isValidCoordinate(newX, newY)) {
+          updateWindowPosition(window.id, newX, newY);
+        }
+      }
+    };
+
+    const handleMouseUp = () => {
+      isDragging.current = false;
+    };
+
+    setupMouseHandlers(handleMouseMove, handleMouseUp);
   };
 
   const startResize = (e: React.MouseEvent) => {
@@ -50,36 +97,26 @@ export function Window({ window }: WindowProps) {
       x: e.clientX,
       y: e.clientY,
     };
-  };
 
-  useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (isDragging.current) {
-        const newX = e.clientX - dragOffset.current.x;
-        const newY = Math.max(0, e.clientY - dragOffset.current.y);
-        updateWindowPosition(window.id, newX, newY);
-      } else if (isResizing.current) {
+      if (isResizing.current) {
         const deltaX = e.clientX - resizeStart.current.x;
         const deltaY = e.clientY - resizeStart.current.y;
         const newWidth = Math.max(400, resizeStart.current.width + deltaX);
         const newHeight = Math.max(300, resizeStart.current.height + deltaY);
-        updateWindowSize(window.id, newWidth, newHeight);
+
+        if (isValidDimension(newWidth, newHeight)) {
+          updateWindowSize(window.id, newWidth, newHeight);
+        }
       }
     };
 
     const handleMouseUp = () => {
-      isDragging.current = false;
       isResizing.current = false;
     };
 
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseup", handleMouseUp);
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
-    };
-  }, [window.id, updateWindowPosition, updateWindowSize]);
+    setupMouseHandlers(handleMouseMove, handleMouseUp);
+  };
 
   const renderWindowContent = () => {
     switch (window.type) {

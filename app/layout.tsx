@@ -53,7 +53,7 @@ export default function RootLayout({
         >
           <div className="h-screen overflow-hidden flex flex-col bg-(--background)">
             <Header />
-            <main className="flex-1 relative overflow-hidden mt-12">
+            <main className="flex-1 relative overflow-hidden mt-10">
               {children}
             </main>
             <Dock />

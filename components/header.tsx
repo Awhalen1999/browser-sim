@@ -29,7 +29,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 px-6 h-12 flex items-center justify-between border border-green-500">
+    <header className="fixed top-0 left-0 right-0 px-6 h-10 flex items-center justify-between bg-black/10 dark:bg-white/10">
       {/* Left side - Name */}
       <div className="text-sm font-mono text-gray-900 dark:text-gray-100 tracking-extra-wide">
         A.DEV

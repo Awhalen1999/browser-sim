@@ -1,7 +1,7 @@
 import React from "react";
 
 const page = () => {
-  return <section className="max-w-3xl border border-yellow-500">page</section>;
+  return <section className="max-w-3xl">page</section>;
 };
 
 export default page;

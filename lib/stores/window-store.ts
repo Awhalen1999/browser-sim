@@ -30,10 +30,17 @@ const windowConfigs: Record<WindowType, WindowConfig> = {
   },
 };
 
-const getCenterPosition = (windowWidth: number, windowHeight: number) => ({
-  x: (window.innerWidth - windowWidth) / 2,
-  y: (window.innerHeight - windowHeight) / 2,
-});
+const getCenterPosition = (windowWidth: number, windowHeight: number) => {
+  // Handle SSR - window object not available on server
+  if (typeof window === "undefined") {
+    return { x: 0, y: 0 };
+  }
+
+  return {
+    x: (window.innerWidth - windowWidth) / 2,
+    y: (window.innerHeight - windowHeight) / 2,
+  };
+};
 
 export const useWindowStore = create<WindowStore>((set, get) => ({
   windows: [],
