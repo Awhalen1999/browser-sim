@@ -3,7 +3,7 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { IconType } from "react-icons";
-import { MdDarkMode, MdLightMode, MdPerson, MdWork } from "react-icons/md";
+import { MdDarkMode, MdLightMode, MdPerson, MdFolder } from "react-icons/md";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { DockIcon } from "./dock-icon";
 import { useWindowStore } from "@/lib/stores/window-store";
@@ -27,7 +27,7 @@ const localDockItems: DockItem[] = [
   {
     id: "projects",
     label: "Projects",
-    icon: MdWork,
+    icon: MdFolder,
     windowType: "projects",
   },
 ];
