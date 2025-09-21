@@ -75,6 +75,9 @@ export function Dock() {
   const [mounted, setMounted] = useState(false);
   const { openWindow, windows } = useWindowStore();
 
+  // Check if any window is maximized
+  const isAnyWindowMaximized = windows.some((w) => w.isMaximized);
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -110,7 +113,13 @@ export function Dock() {
   };
 
   return (
-    <div className="fixed bottom-2 left-1/2 -translate-x-1/2 z-100">
+    <div
+      className={`fixed bottom-2 left-1/2 -translate-x-1/2 z-100 transition-transform duration-300 ease-in-out ${
+        isAnyWindowMaximized
+          ? "translate-y-full opacity-0"
+          : "translate-y-0 opacity-100"
+      }`}
+    >
       <div className="bg-black/10 dark:bg-white/10 backdrop-blur-md border border-gray-400 dark:border-gray-600 px-6 py-3 rounded-2xl flex space-x-4 items-end h-16">
         {/* Local navigation items */}
         {localDockItems.map((item) => (
