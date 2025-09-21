@@ -94,9 +94,7 @@ export function Dock() {
 
   const isActive = (item: DockItem) => {
     if (item.windowType) {
-      return windows.some(
-        (w: WindowState) => w.type === item.windowType && !w.isMinimized
-      );
+      return windows.some((w: WindowState) => w.type === item.windowType);
     }
     return false;
   };

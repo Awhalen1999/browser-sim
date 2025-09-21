@@ -9,7 +9,6 @@ interface WindowStore {
   openWindow: (type: WindowType) => void;
   closeWindow: (id: string) => void;
   focusWindow: (id: string) => void;
-  minimizeWindow: (id: string) => void;
   maximizeWindow: (id: string) => void;
   updateWindowPosition: (id: string, x: number, y: number) => void;
   updateWindowSize: (id: string, width: number, height: number) => void;
@@ -66,7 +65,6 @@ export const useWindowStore = create<WindowStore>((set, get) => ({
       title: config.title,
       position: centerPos,
       size: config.defaultSize,
-      isMinimized: false,
       isMaximized: false,
       zIndex: get().nextZIndex,
     };
@@ -86,17 +84,9 @@ export const useWindowStore = create<WindowStore>((set, get) => ({
   focusWindow: (id: string) => {
     set((state) => ({
       windows: state.windows.map((w) =>
-        w.id === id ? { ...w, zIndex: state.nextZIndex, isMinimized: false } : w
+        w.id === id ? { ...w, zIndex: state.nextZIndex } : w
       ),
       nextZIndex: state.nextZIndex + 1,
-    }));
-  },
-
-  minimizeWindow: (id: string) => {
-    set((state) => ({
-      windows: state.windows.map((w) =>
-        w.id === id ? { ...w, isMinimized: !w.isMinimized } : w
-      ),
     }));
   },
 

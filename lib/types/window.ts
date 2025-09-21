@@ -16,7 +16,6 @@ export interface WindowState {
   title: string;
   position: WindowPosition;
   size: WindowSize;
-  isMinimized: boolean;
   isMaximized: boolean;
   zIndex: number;
 }

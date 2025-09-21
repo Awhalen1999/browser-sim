@@ -5,6 +5,7 @@ import { WindowState } from "@/lib/types/window";
 import { useWindowStore } from "@/lib/stores/window-store";
 import { AboutWindow } from "./windows/about-window";
 import { ProjectsWindow } from "./windows/projects-window";
+import { FaPlus, FaMinus, FaXmark } from "react-icons/fa6";
 
 // Type safety utilities
 const isValidNumber = (value: unknown): value is number => {
@@ -35,7 +36,6 @@ export function Window({ window }: WindowProps) {
   const {
     closeWindow,
     focusWindow,
-    minimizeWindow,
     maximizeWindow,
     updateWindowPosition,
     updateWindowSize,
@@ -129,10 +129,6 @@ export function Window({ window }: WindowProps) {
     }
   };
 
-  if (window.isMinimized) {
-    return null;
-  }
-
   const windowStyle = window.isMaximized
     ? {
         left: 0,
@@ -158,23 +154,29 @@ export function Window({ window }: WindowProps) {
     >
       {/* Window Header */}
       <div
-        className="bg-gray-100 dark:bg-gray-800 px-4 py-2 flex items-center justify-between cursor-move border-b border-gray-200 dark:border-gray-700"
+        className="bg-gray-100 dark:bg-gray-800 px-4 h-11 flex items-center justify-between cursor-move border-b border-gray-200 dark:border-gray-700"
         onMouseDown={startDrag}
       >
-        {/* Traffic Light Buttons */}
+        {/* Buttons */}
         <div className="flex space-x-2">
           <button
-            className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-600 transition-colors"
+            className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-600 transition-colors flex items-center justify-center"
             onClick={() => closeWindow(window.id)}
-          />
+          >
+            <FaXmark className="text-gray-800 opacity-0 hover:opacity-100 transition-opacity w-2 h-2" />
+          </button>
           <button
-            className="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-600 transition-colors"
-            onClick={() => minimizeWindow(window.id)}
-          />
+            className="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-600 transition-colors flex items-center justify-center"
+            onClick={() => closeWindow(window.id)}
+          >
+            <FaMinus className="text-gray-800 opacity-0 hover:opacity-100 transition-opacity w-2 h-2" />
+          </button>
           <button
-            className="w-3 h-3 rounded-full bg-green-500 hover:bg-green-600 transition-colors"
+            className="w-3 h-3 rounded-full bg-green-500 hover:bg-green-600 transition-colors flex items-center justify-center"
             onClick={() => maximizeWindow(window.id)}
-          />
+          >
+            <FaPlus className="text-gray-800 opacity-0 hover:opacity-100 transition-opacity w-2 h-2" />
+          </button>
         </div>
 
         {/* Window Title */}
