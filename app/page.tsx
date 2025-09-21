@@ -5,6 +5,7 @@ import AnimatedEyes from "@/components/animated-eyes";
 import { Window } from "@/components/window";
 import { useWindowStore } from "@/lib/stores/window-store";
 import { WindowState } from "@/lib/types/window";
+import { Notification } from "@/components/notification";
 
 const Page = () => {
   const { windows, closeWindow } = useWindowStore();
@@ -24,6 +25,21 @@ const Page = () => {
   return (
     <div className="min-h-screen">
       <AnimatedEyes />
+
+      {/* ESC Key Tip Notification */}
+      <Notification
+        id="esc-key-tip"
+        title="💡 Quick Tip"
+        message={
+          <div>
+            Press{" "}
+            <kbd className="px-1 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono">
+              ESC
+            </kbd>{" "}
+            to close all windows
+          </div>
+        }
+      />
 
       {/* Render all open windows */}
       {windows.map((window: WindowState) => (

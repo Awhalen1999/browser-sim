@@ -31,7 +31,7 @@ export function DockIcon({
       )}
 
       {/* Tooltip */}
-      <div className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200">
+      <div className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 bg-black/50 dark:bg-white/50 text-white dark:text-black text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200">
         {label}
       </div>
     </div>
