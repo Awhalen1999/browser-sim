@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { WindowState } from "@/lib/types/window";
 import { useWindowStore } from "@/lib/stores/window-store";
 import { AboutWindow } from "./windows/about-window";

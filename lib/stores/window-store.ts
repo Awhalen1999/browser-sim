@@ -26,7 +26,7 @@ const windowConfigs: Record<WindowType, WindowConfig> = {
     type: "projects",
     title: "Projects",
     defaultSize: { width: 700, height: 500 },
-    minSize: { width: 400, height: 300 },
+    minSize: { width: 500, height: 400 },
   },
 };
 
@@ -38,7 +38,7 @@ const getCenterPosition = (windowWidth: number, windowHeight: number) => {
 
   return {
     x: (window.innerWidth - windowWidth) / 2,
-    y: (window.innerHeight - windowHeight) / 2,
+    y: (window.innerHeight - windowHeight) / 3,
   };
 };
 
