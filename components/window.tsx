@@ -148,9 +148,8 @@ export function Window({ window }: WindowProps) {
   return (
     <div
       ref={windowRef}
-      className="absolute bg-white dark:bg-gray-900 rounded-lg shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700"
+      className="absolute bg-white dark:bg-gray-900 rounded-lg shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700 flex flex-col"
       style={windowStyle}
-      onMouseDown={() => focusWindow(window.id)}
     >
       {/* Window Header */}
       <div
@@ -191,7 +190,7 @@ export function Window({ window }: WindowProps) {
       </div>
 
       {/* Window Content */}
-      <div className="flex-1 overflow-hidden">{renderWindowContent()}</div>
+      <div className="flex-1 overflow-auto">{renderWindowContent()}</div>
 
       {/* Resize Handle */}
       {!window.isMaximized && (
