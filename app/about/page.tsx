@@ -10,8 +10,8 @@ const AboutPage = () => {
             Alex Whalen
           </h1>
           <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-            Hey! I&apos;m Alex Whalen, a passionate full-stack developer and creative
-            problem solver.
+            Hey! I&apos;m Alex Whalen, a passionate full-stack developer and
+            creative problem solver.
           </p>
         </div>
 
@@ -223,7 +223,8 @@ const AboutPage = () => {
                 SF
               </span>
             </span>
-            , if you are around, please reach out and let&apos;s have some coffee or{" "}
+            , if you are around, please reach out and let&apos;s have some
+            coffee or{" "}
             <a
               href="#"
               className="text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors underline"

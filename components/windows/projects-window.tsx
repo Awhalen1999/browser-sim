@@ -2,57 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { FaGithub } from "react-icons/fa";
-
-interface ProjectData {
-  id: string;
-  name: string;
-  icon: string;
-  shortDescription: string;
-  githubUrl: string;
-  readmeUrl: string;
-  technologies: string[];
-  type: string;
-}
-
-// Mock project data - replace with real data later
-const mockProjects: ProjectData[] = [
-  {
-    id: "1",
-    name: "Portfolio Website",
-    icon: "portfolio",
-    shortDescription:
-      "A modern portfolio website built with Next.js, TypeScript, and Tailwind CSS featuring a macOS-style desktop interface.",
-    githubUrl: "https://github.com/alexwhalen/portfolio",
-    readmeUrl:
-      "https://raw.githubusercontent.com/alexwhalen/portfolio/main/README.md",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
-    type: "web",
-  },
-  {
-    id: "2",
-    name: "Mobile App",
-    icon: "mobile",
-    shortDescription:
-      "Cross-platform mobile application built with React Native and Expo, featuring real-time data synchronization.",
-    githubUrl: "https://github.com/alexwhalen/mobile-app",
-    readmeUrl:
-      "https://raw.githubusercontent.com/alexwhalen/mobile-app/main/README.md",
-    technologies: ["React Native", "Expo", "TypeScript", "Firebase"],
-    type: "mobile",
-  },
-  {
-    id: "3",
-    name: "API Service",
-    icon: "api",
-    shortDescription:
-      "RESTful API service built with Node.js and Express, providing data management and authentication features.",
-    githubUrl: "https://github.com/alexwhalen/api-service",
-    readmeUrl:
-      "https://raw.githubusercontent.com/alexwhalen/api-service/main/README.md",
-    technologies: ["Node.js", "Express", "MongoDB", "JWT"],
-    type: "backend",
-  },
-];
+import {
+  getAllProjects,
+  getFeaturedProjects,
+  Project,
+} from "@/constants/projects";
+import { TechChipGroup } from "@/components/tech-chip-group";
 
 const getTypeColor = (type: string) => {
   switch (type) {
@@ -83,53 +38,26 @@ const getTagColor = (tech: string) => {
 };
 
 export function ProjectsWindow() {
-  const [selectedProject, setSelectedProject] = useState<ProjectData | null>(
-    null
-  );
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [readmeContent, setReadmeContent] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (mockProjects.length > 0) {
-      selectProject(mockProjects[0]);
-    }
-  }, []);
+  // Get projects from constants
+  const allProjects = getAllProjects();
+  const featuredProjects = getFeaturedProjects();
 
-  const selectProject = async (project: ProjectData) => {
+  useEffect(() => {
+    if (allProjects.length > 0) {
+      selectProject(allProjects[0]);
+    }
+  }, [allProjects]);
+
+  const selectProject = async (project: Project) => {
     setSelectedProject(project);
     setIsLoading(true);
     try {
-      // For demo purposes, use mock content instead of fetching
-      setReadmeContent(`# ${project.name}
-
-${project.shortDescription}
-
-## Technologies Used
-
-${project.technologies.map((tech) => `- ${tech}`).join("\n")}
-
-## Features
-
-- Modern, responsive design
-- Cross-platform compatibility  
-- Real-time data synchronization
-- Secure authentication
-- Scalable architecture
-
-## Getting Started
-
-1. Clone the repository
-2. Install dependencies
-3. Run the development server
-4. Open your browser and navigate to the application
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License.`);
+      // Use the long description from the project data
+      setReadmeContent(project.longDescription);
     } catch (error) {
       console.error("Failed to load content:", error);
       setReadmeContent("Failed to load project content.");
@@ -147,7 +75,7 @@ This project is licensed under the MIT License.`);
       <div className="flex-grow flex overflow-hidden">
         {/* Project List Sidebar */}
         <div className="w-80 border-r border-gray-200 dark:border-gray-700 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-          {mockProjects.map((project, index) => (
+          {allProjects.map((project, index) => (
             <div key={project.id}>
               <div
                 className={`p-4 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer transition-colors duration-200 ${
@@ -161,24 +89,26 @@ This project is licensed under the MIT License.`);
                   <div className="w-6 h-6 mr-2 text-gray-600 dark:text-gray-400">
                     {/* Placeholder icon - replace with actual icons later */}
                     <div className="w-full h-full bg-gray-300 dark:bg-gray-600 rounded flex items-center justify-center text-xs font-bold">
-                      {project.icon.charAt(0).toUpperCase()}
+                      {project.name.charAt(0).toUpperCase()}
                     </div>
                   </div>
                   <h3 className="font-semibold flex-grow text-gray-800 dark:text-gray-200 truncate">
                     {project.name}
                   </h3>
-                  <button
-                    className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors duration-200"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      openProjectLink(project.githubUrl);
-                    }}
-                  >
-                    <FaGithub className="w-5 h-5" />
-                  </button>
+                  {project.githubUrl && (
+                    <button
+                      className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors duration-200"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openProjectLink(project.githubUrl!);
+                      }}
+                    >
+                      <FaGithub className="w-5 h-5" />
+                    </button>
+                  )}
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 line-clamp-2">
-                  {project.shortDescription}
+                  {project.description}
                 </p>
                 <div className="flex flex-wrap gap-1 mt-2">
                   <span
@@ -188,19 +118,10 @@ This project is licensed under the MIT License.`);
                   >
                     {project.type}
                   </span>
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className={`px-2 py-1 text-xs font-medium rounded-full ${getTagColor(
-                        tech
-                      )}`}
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  <TechChipGroup techIds={project.technologies} />
                 </div>
               </div>
-              {index < mockProjects.length - 1 && (
+              {index < allProjects.length - 1 && (
                 <hr className="border-gray-300 dark:border-gray-600" />
               )}
             </div>
