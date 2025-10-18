@@ -15,15 +15,15 @@ interface WindowStore {
 }
 
 const windowConfigs: Record<WindowType, WindowConfig> = {
-  about: {
-    type: "about",
-    title: "About",
+  1: {
+    type: "1",
+    title: "1",
     defaultSize: { width: 700, height: 500 },
     minSize: { width: 400, height: 300 },
   },
-  projects: {
-    type: "projects",
-    title: "Projects",
+  2: {
+    type: "2",
+    title: "2",
     defaultSize: { width: 700, height: 500 },
     minSize: { width: 500, height: 400 },
   },

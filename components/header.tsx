@@ -54,7 +54,7 @@ export default function Header() {
     >
       {/* Left side - Name */}
       <div className="text-sm font-mono text-gray-900 dark:text-gray-100 tracking-extra-wide">
-        A.DEV
+        BROWSER SIM
       </div>
 
       {/* Right side - Time */}

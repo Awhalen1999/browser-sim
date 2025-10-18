@@ -14,25 +14,24 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Whalen",
+  title: "Browser Simulation",
   description:
-    "Full-stack software developer specializing in mobile and web applications. Portfolio showcasing modern React, Next.js, and cross-platform development.",
+    "An interactive browser simulation with draggable, resizable windows and a modern macOS-inspired interface.",
   keywords: [
-    "portfolio",
-    "software developer",
-    "full stack",
-    "mobile development",
-    "web development",
+    "browser simulation",
+    "window manager",
+    "web app",
     "react",
     "nextjs",
     "typescript",
+    "ui demo",
   ],
   authors: [{ name: "Alex Whalen" }],
   creator: "Alex Whalen",
   openGraph: {
-    title: "Alex Whalen - Software Developer",
+    title: "Browser Simulation",
     description:
-      "Full-stack mobile and web developer. Explore my projects and development journey.",
+      "An interactive browser simulation with draggable, resizable windows.",
     type: "website",
   },
 };

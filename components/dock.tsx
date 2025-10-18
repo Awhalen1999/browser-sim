@@ -19,16 +19,16 @@ interface DockItem {
 
 const localDockItems: DockItem[] = [
   {
-    id: "about",
-    label: "About",
+    id: "window-1",
+    label: "Window 1",
     icon: MdPerson,
-    windowType: "about",
+    windowType: "1",
   },
   {
-    id: "projects",
-    label: "Projects",
+    id: "window-2",
+    label: "Window 2",
     icon: MdFolder,
-    windowType: "projects",
+    windowType: "2",
   },
 ];
 

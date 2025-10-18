@@ -3,8 +3,8 @@
 import { useRef } from "react";
 import { WindowState } from "@/lib/types/window";
 import { useWindowStore } from "@/lib/stores/window-store";
-import { AboutWindow } from "./windows/about-window";
-import { ProjectsWindow } from "./windows/projects-window";
+import { Window1 } from "./windows/window-1";
+import { Window2 } from "./windows/window-2";
 import { FaPlus, FaMinus, FaXmark } from "react-icons/fa6";
 
 // Type safety utilities
@@ -120,10 +120,10 @@ export function Window({ window }: WindowProps) {
 
   const renderWindowContent = () => {
     switch (window.type) {
-      case "about":
-        return <AboutWindow />;
-      case "projects":
-        return <ProjectsWindow />;
+      case "1":
+        return <Window1 />;
+      case "2":
+        return <Window2 />;
       default:
         return <div className="p-4">Unknown window type</div>;
     }

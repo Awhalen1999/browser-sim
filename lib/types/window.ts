@@ -1,4 +1,4 @@
-export type WindowType = "about" | "projects";
+export type WindowType = "1" | "2";
 
 export interface WindowPosition {
   x: number;
