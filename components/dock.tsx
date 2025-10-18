@@ -3,8 +3,9 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { IconType } from "react-icons";
-import { MdDarkMode, MdLightMode, MdPerson, MdFolder } from "react-icons/md";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
+import { TbHorse } from "react-icons/tb";
+import { RiNumber1, RiNumber2 } from "react-icons/ri";
 import { DockIcon } from "./dock-icon";
 import { useWindowStore } from "@/lib/stores/window-store";
 import { WindowType, WindowState } from "@/lib/types/window";
@@ -21,29 +22,23 @@ const localDockItems: DockItem[] = [
   {
     id: "window-1",
     label: "Window 1",
-    icon: MdPerson,
+    icon: RiNumber1,
     windowType: "1",
   },
   {
     id: "window-2",
     label: "Window 2",
-    icon: MdFolder,
+    icon: RiNumber2,
     windowType: "2",
   },
 ];
 
 const externalDockItems: DockItem[] = [
   {
-    id: "github",
-    label: "GitHub",
-    icon: FaGithub,
-    href: "https://github.com",
-  },
-  {
-    id: "linkedin",
-    label: "LinkedIn",
-    icon: FaLinkedin,
-    href: "https://linkedin.com",
+    id: "horse",
+    label: "Horse",
+    icon: TbHorse,
+    href: "http://endless.horse/",
   },
 ];
 
