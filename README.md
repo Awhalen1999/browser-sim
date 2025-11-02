@@ -54,7 +54,3 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 2. Add the window type to `lib/types/window.ts`
 3. Configure the window in `lib/stores/window-store.ts`
 4. Add a dock icon in `components/dock.tsx`
-
-## License
-
-MIT
