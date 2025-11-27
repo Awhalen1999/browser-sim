@@ -50,7 +50,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="h-screen overflow-hidden flex flex-col bg-(--background)">
+          <div
+            className="h-screen overflow-hidden flex flex-col"
+            style={{ backgroundColor: "var(--background)" }}
+          >
             <Header />
             <main className="flex-1 relative overflow-hidden">{children}</main>
             <Dock />
