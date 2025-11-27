@@ -1,6 +1,6 @@
-@import "tailwindcss";
-
-@custom-variant dark (&:where(.dark, .dark *));
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 ::selection {
   background-color: #ff7bb6;
@@ -10,41 +10,34 @@
 /* Light theme colors */
 :root {
   /* Base Colors */
-
   --background: #fdfdfd;
   --foreground: #171717;
 
   /* Surface Colors */
-
   --surface: #f8f9fa;
   --surface-hover: #e9ecef;
   --surface-active: #dee2e6;
 
   /* Border & Divider */
-
   --border: #e5e7eb;
   --border-hover: #d1d5db;
 
   /* Text Colors */
-
   --text-primary: #171717;
   --text-secondary: #6b7280;
   --text-muted: #9ca3af;
 
   /* Accent Colors */
-
   --accent: #3b82f6;
   --accent-hover: #2563eb;
   --accent-foreground: #ffffff;
 
   /* Status Colors */
-
   --success: #10b981;
   --warning: #f59e0b;
   --error: #ef4444;
 
   /* Glass Effect */
-
   --glass-bg: rgba(255, 255, 255, 0.15);
   --glass-border: rgba(255, 255, 255, 0.25);
   --glass-backdrop: blur(10px);
@@ -54,41 +47,34 @@
 /* Dark theme colors */
 .dark {
   /* Base Colors */
-
   --background: #0a0a0a;
   --foreground: #ffffff;
 
   /* Surface Colors */
-
   --surface: #1a1a1a;
   --surface-hover: #2a2a2a;
   --surface-active: #3a3a3a;
 
   /* Border & Divider */
-
   --border: #2a2a2a;
   --border-hover: #3a3a3a;
 
   /* Text Colors */
-
   --text-primary: #ffffff;
   --text-secondary: #999999;
   --text-muted: #666666;
 
   /* Accent Colors */
-
   --accent: #4c97f8;
   --accent-hover: #3578d8;
   --accent-foreground: #ffffff;
 
   /* Status Colors */
-
   --success: #10b981;
   --warning: #f59e0b;
   --error: #ef4444;
 
   /* Glass Effect */
-
   --glass-bg: rgba(0, 0, 0, 0.15);
   --glass-border: rgba(0, 0, 0, 0.25);
   --glass-backdrop: blur(10px);
