@@ -9,6 +9,7 @@ import { RiNumber1, RiNumber2 } from "react-icons/ri";
 import { DockIcon } from "./dock-icon";
 import { useWindowStore } from "@/lib/stores/window-store";
 import { WindowType, WindowState } from "@/lib/types/window";
+import { FaGithub } from "react-icons/fa";
 
 interface DockItem {
   id: string;
@@ -39,6 +40,12 @@ const externalDockItems: DockItem[] = [
     label: "Horse",
     icon: TbHorse,
     href: "http://endless.horse/",
+  },
+  {
+    id: "github",
+    label: "GitHub repo",
+    icon: FaGithub,
+    href: "https://github.com/awhalen1999/browser-sim",
   },
 ];
 
