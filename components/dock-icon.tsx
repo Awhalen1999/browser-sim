@@ -21,8 +21,8 @@ export function DockIcon({
       onClick={onClick}
     >
       {/* Icon container */}
-      <div className="w-10  h-10 bg-gray-400 dark:bg-gray-600 rounded-xl flex items-center justify-center">
-        <Icon className="w-6 h-6 text-black dark:text-white" />
+      <div className="w-10  h-10 bg-gray-100 dark:bg-gray-700 rounded-xl flex items-center justify-center">
+        <Icon className="w-6 h-6 text-black dark:text-white " />
       </div>
 
       {/* Active indicator */}

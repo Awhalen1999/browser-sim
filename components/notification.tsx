@@ -35,7 +35,7 @@ export function Notification({ id, title, message }: NotificationProps) {
 
   return (
     <div
-      className={`fixed top-16 right-6 z-50 bg-black/20 dark:bg-white/10 backdrop-blur-md rounded-xl p-3 max-w-xs transition-all duration-500 ease-out ${
+      className={`fixed top-16 right-6 z-50 bg-black/10 dark:bg-white/10 backdrop-blur-md rounded-xl p-3 max-w-xs transition-all duration-500 ease-out ${
         isVisible ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
       }`}
     >
@@ -44,9 +44,9 @@ export function Notification({ id, title, message }: NotificationProps) {
           <h3 className="text-xs font-medium text-gray-800 dark:text-gray-200 mb-2">
             {title}
           </h3>
-          <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+          <div className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
             {message}
-          </p>
+          </div>
         </div>
         <button
           onClick={handleDismiss}
