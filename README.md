@@ -2,6 +2,8 @@
 
 An interactive browser simulation built with Next.js, featuring draggable and resizable windows with a macOS-inspired interface.
 
+<img width="1311" height="695" alt="Screenshot 2025-11-26 at 10 28 39 PM" src="https://github.com/user-attachments/assets/8a5274b0-0802-478e-b94f-e4aeac65469f" />
+
 ## Features
 
 - 🪟 **Draggable Windows** - Click and drag windows anywhere on the screen
